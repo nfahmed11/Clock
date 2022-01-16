@@ -8,6 +8,7 @@ setInterval(function () {
   let seconds = today.getSeconds();
   let minutes = today.getMinutes();
   let hours = today.getHours();
+
   let second = (seconds / 60) * 360 + 90;
   let minute = (minutes / 60) * 360 + 90;
   let hour = (hours / 12) * 360 + 90;
@@ -17,4 +18,10 @@ setInterval(function () {
   hourHand.style.transform = `rotate(${hour}deg)`;
 
   digitalClock.innerHTML = `${hours} : ${minutes} : ${seconds}`;
+
+  if (hours > 12) {
+    let twelveHours = hours - 12;
+
+    digitalClock.innerHTML = `${twelveHours} : ${minutes} : ${seconds}`;
+  }
 }, 1000);
